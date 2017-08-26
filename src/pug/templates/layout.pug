@@ -1,0 +1,18 @@
+doctype
+html(lang="pt-br")
+	block vars
+		- var title = ''
+	head
+		if title
+			title - #{title}
+		else
+			title 
+		include ../molecules/style
+		include ../molecules/head
+	body
+		include ../organisms/header
+		main
+			block content
+
+		include ../organisms/footer
+		include ../molecules/script

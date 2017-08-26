@@ -1,0 +1,133 @@
+gradient-2($angle,$color1, $color2)
+	background-color $color1
+	background-image -webkit-linear-gradient($angle, $color1, $color2)
+	background-image    -moz-linear-gradient($angle, $color1, $color2)
+	background-image     -ms-linear-gradient($angle, $color1, $color2)
+	background-image      -o-linear-gradient($angle, $color1, $color2)
+	background-image         linear-gradient($angle, $color1, $color2)
+	
+gradient-3($angle,$color1, $color2, $color3)
+	background-color $color1
+	background-image -webkit-linear-gradient($angle, $color1, $color2, $color3)
+	background-image    -moz-linear-gradient($angle, $color1, $color2, $color3)
+	background-image     -ms-linear-gradient($angle, $color1, $color2, $color3)
+	background-image      -o-linear-gradient($angle, $color1, $color2, $color3)
+	background-image         linear-gradient($angle, $color1, $color2, $color3)
+	
+transition($transition...)
+	-moz-transition     $transition linear
+	-o-transition       $transition linear
+	-webkit-transition  $transition linear
+	transition          $transition linear
+	
+transition-ease($transition-ease...)
+	-moz-transition     $transition-ease ease
+	-o-transition       $transition-ease ease
+	-webkit-transition  $transition-ease ease
+	transition          $transition-ease ease
+
+
+lheight($height)
+	height $height
+	line-height $height
+
+size($width, $height = $width)
+	width $width
+	height $height
+
+size-line($width, $height = $width, $line-height = $height)
+	size($width, $height)
+	line-height $line-height
+	
+merge($top, $right = $top, $bottom = $right, $left = $bottom)
+	top $top
+	right $right
+	bottom $bottom
+	left $left
+
+responsive-ratio($x,$y, $pseudo = true)
+	position relative
+	$padding = percentage($y / $x)
+	if $pseudo
+		&::before
+			content ''
+			width 100%
+			padding-top $padding
+			display block
+	else
+		padding-top $padding
+
+font-size($m = 15px, $t = $m, $d = $t)
+	+mobile()
+		font-size $m
+		font-size torem($m)
+	+tablet()
+		font-size $t
+		font-size torem($t)
+	+desktop()
+		font-size $d
+		font-size torem($d)
+
+
+wrap($m = $mobile, $t = $tablet, $d = $desktop)
+	margin-left auto
+	margin-right auto
+
+	if ($m == null || $m == 0)
+		$m = $mobile
+	if ($t == null || $t == 0)
+		$t = $tablet
+	if ($d == null || $d == 0)
+		$d = $desktop
+
+	// Tablet
+	+tablet()
+		width 88%
+		max-width $t
+
+	// Desktop
+	+desktop()
+		width 90%
+		max-width $d
+
+	// Mobile
+	+mobile()
+		width 90%
+		max-width $m
+
+mp($m = 0, $p = $m)
+	margin $m
+	padding $p
+
+mobile()
+	@media (max-width $mobile)
+		{block}
+
+tablet()
+	@media (min-width $mobile) and (max-width $tablet)
+		{block}
+
+desktop()
+	@media (min-width $desktop)
+		{block}
+
+mobile-tablet()
+	@media (max-width $tablet)
+		{block}
+
+tablet-desktop()
+	@media (min-width $mobile)
+		{block}
+		
+mobile-desktop()
+	@media (max-width $mobile), (min-width $desktop)
+		{block}
+
+ico($content)
+	content $content
+	font-family $ico
+	speak none
+	font-style normal
+	font-weight normal
+	font-variant normal
+	text-transform none

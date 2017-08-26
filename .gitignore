@@ -1,0 +1,4 @@
+dist/assets/css
+dist/assets/js
+dist/*.html
+node_modules
