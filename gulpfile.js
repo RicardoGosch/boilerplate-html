@@ -24,16 +24,16 @@ const files = {
 	},
 	dist: {
 		css: {
-			all: "./dist/assets/css",
-			unique: "./dist/assets/css/*.css"
+			all: "./assets/css",
+			unique: "./assets/css/*.css"
 		},
 		js: {
-			all: "./dist/assets/js",
-			unique: "./dist/assets/js/*.js"
+			all: "./assets/js",
+			unique: "./assets/js/*.js"
 		},
 		html: {
-			all: "./dist",
-			unique: "./dist/*.html"
+			all: "./",
+			unique: "./*.html"
 		}
 	}
 }
