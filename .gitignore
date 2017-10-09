@@ -1,4 +1,4 @@
-dist/assets/css
-dist/assets/js
-dist/*.html
+assets/css
+assets/js
+*.html
 node_modules
